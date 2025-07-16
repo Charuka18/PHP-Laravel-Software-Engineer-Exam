@@ -6,7 +6,7 @@
     <div class="mb-3">
         <a href="{{ url('/dashboard') }}" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
-    <h2>Edit Post</h2>
+    <h2> Edit Post</h2>
 
     <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
