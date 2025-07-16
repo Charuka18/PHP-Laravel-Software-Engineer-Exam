@@ -30,7 +30,7 @@ public function store(Request $request)
         $image = $request->file('image');
         $imageName = time() . '_' . $image->getClientOriginalName();
 
-        // Save in public/post_images (NOT in storage)
+        
         $image->move(public_path('post_images'), $imageName);
     }
 
@@ -38,14 +38,14 @@ public function store(Request $request)
         'title' => $request->title,
         'content' => $request->content,
         'user_id' => $request->user_id,
-        'image' => $imageName, // Just the filename
+        'image' => $imageName, 
     ]);
 
     return redirect()->route('posts.create')->with('success', 'Post created successfully!');
 }
 public function post_list()
 {
-    $posts = Post::with('user')->latest()->get(); // eager load user
+    $posts = Post::with('user')->latest()->get(); 
     return view('posts.post_list', compact('posts'));
 }
 public function edit($id)
@@ -67,7 +67,7 @@ public function update(Request $request, $id)
     $post = Post::findOrFail($id);
 
     if ($request->hasFile('image')) {
-        // Delete old image if exists
+        
         if ($post->image && file_exists(public_path('post_images/' . $post->image))) {
             unlink(public_path('post_images/' . $post->image));
         }
@@ -89,7 +89,7 @@ public function destroy($id)
 {
     $post = Post::findOrFail($id);
 
-    // Delete image file
+   
     if ($post->image && file_exists(public_path('post_images/' . $post->image))) {
         unlink(public_path('post_images/' . $post->image));
     }

@@ -11,7 +11,7 @@ class LoginController extends Controller
     // Show custom login page
     public function showLoginForm()
     {
-        return view('auth.login'); // login.blade.php
+        return view('auth.login'); 
     }
 
     public function login(Request $request)

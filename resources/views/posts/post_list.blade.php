@@ -21,7 +21,7 @@
                 <th>Author</th>
                 <th>Image</th>
                 <th>Created At</th>
-                <th>Actions</th> <!-- Added -->
+                <th>Actions</th> 
             </tr>
         </thead>
         <tbody>
